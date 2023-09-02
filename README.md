@@ -1,6 +1,6 @@
-# Cotacao_bitcoin
- cotação do bitcoin em shellscript envolvendo api do mercado bitcoin
-## Como usar
-* git clone https://github.com/RaelzeraXD/Cotacao_bitcoin
-* cd Cotacao_bitcoin
-* ./cotacao.sh
+# Bitcoin_Price
+ the bitcoin price envolving mercadobitcoin.com API in shellscript
+## how to use
+* git clone https://github.com/RaelzeraXD/bitcoin_price
+* cd bitcoin_price
+* ./btcprice.sh
