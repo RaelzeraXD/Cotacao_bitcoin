@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-#Autor: israel silva de freitas
+#Author: israel silva de freitas
 #------------------------------
 #          CHANGELOG
 # v1.0 12/08/2023
-#   -script básico fazendo query para api e funcionando normal
+#   -basic script but working very well
 # v1.1 16/08/2023
-#   -agora o script verifica se o lynx está instalado antes de executar
+#   -verifying if lyns is installed
 #------------------------------
 
-[ ! -x "$(which lynx)" ] && echo "Precisamos instalar o lynx, insira sua senha" && sudo apt install lynx 1> /dev/null 2>&1 -y # Verificando se o lynx está instalado
+[ ! -x "$(which lynx)" ] && echo "Precisamos instalar o lynx, insira sua senha" && sudo apt install lynx 1> /dev/null 2>&1 -y # verifying if lyns is installed
 
 api=https://www.mercadobitcoin.net/api/BTC/ticker/
 preco=$(lynx -source $api | cut -d, -f4 | cut -d\" -f4) # pegando o preco medio
