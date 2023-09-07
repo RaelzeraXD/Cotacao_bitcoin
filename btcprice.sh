@@ -9,10 +9,12 @@
 #   -verifying if lyns is installed
 #------------------------------
 
-[ ! -x "$(which lynx)" ] && echo "Precisamos instalar o lynx, insira sua senha" && sudo apt install lynx 1> /dev/null 2>&1 -y # verifying if lyns is installed
+[ ! -x "$(which lynx)" ] && echo "Precisamos instalar o lynx, insira sua senha" && sudo apt install lynx -y 1>/dev/null 2>&1 # verifying if lyns is installed
 
 api=https://www.mercadobitcoin.net/api/BTC/ticker/
-preco=$(lynx -source $api | cut -d, -f4 | cut -d\" -f4) # pegando o preco medio
-timestamp=$(lynx -source $api | cut -d, -f8 | cut -d: -f2 | cut -d} -f1) # filtrando a api para pegar o timestamp
-data=$(date -d @$timestamp +'%d/%m/%Y às %H:%M:%S') # converter timestamp em formato legivel
-echo "O preço medio vendido do bitcoin em $data é $preco reais"
+high=$(lynx -source $api | cut -d, -f1 | cut -d\" -f6 | cut -d. -f1)
+low=$(lynx -source $api | cut -d, -f2 | cut -d\" -f4 | cut -d. -f1)
+price=$(( ($high + $low) / 2 ))                                          # taking the average price
+timestamp=$(lynx -source $api | cut -d, -f8 | cut -d: -f2 | cut -d} -f1) # filtering the api to get the timestamp
+date=$(date -d @$timestamp +'%m/%d/%Y at %H:%M:%S')                      # convert timestamp to readable format
+echo "the average price in $date is $price BRL"
