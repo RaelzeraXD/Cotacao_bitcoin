@@ -9,7 +9,7 @@
 #   -verifying if lyns is installed
 #------------------------------
 
-[ ! -x "$(which lynx)" ] && echo "we need to install lynx, please insert the password" && sudo apt install lynx -y 1>/dev/null 2>&1 # verifying if lyns is installed
+[ ! -x "$(which lynx)" ] && echo "we need to install lynx, please insert the password" && sudo apt install lynx -y 1>/dev/null 2>&1 # verifying if lynx is installed
 
 api=https://www.mercadobitcoin.net/api/BTC/ticker/
 high=$(lynx -source $api | cut -d, -f1 | cut -d\" -f6 | cut -d. -f1)
