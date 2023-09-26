@@ -1,5 +1,5 @@
 # Bitcoin_Price
- the bitcoin price envolving mercadobitcoin.com API in shellscript
+ the bitcoin price envolving mercadobitcoin.com API in shellscript and python
 ## how to use (shellcript)
 * git clone https://github.com/RaelzeraXD/bitcoin_price
 * cd bitcoin_price
