@@ -16,5 +16,5 @@ high=$(lynx -source $api | cut -d, -f1 | cut -d\" -f6 | cut -d. -f1)
 low=$(lynx -source $api | cut -d, -f2 | cut -d\" -f4 | cut -d. -f1)
 price=$(( ($high + $low) / 2 ))                                          # taking the average price
 timestamp=$(lynx -source $api | cut -d, -f8 | cut -d: -f2 | cut -d} -f1) # filtering the api to get the timestamp
-date=$(date -d @$timestamp +'%m/%d/%Y at %H:%M:%S')                      # convert timestamp to readable format
+date=$(date -d @$timestamp +'%d/%m/%Y at %H:%M:%S')                      # convert timestamp to readable format
 echo "the average price in $date is $price BRL"
